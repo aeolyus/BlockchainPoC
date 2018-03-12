@@ -6,25 +6,24 @@ import org.bouncycastle.jce.provider.BouncyCastleProvider;
  * @author aeolyus
  *
  */
-public class Chain {
-
-	public static ArrayList<Block> blockchain = new ArrayList<Block>();
+public class Chain{
+	
+	public static ArrayList<Block> blockchain=new ArrayList<Block>();
 	public static int difficulty=5;
 	
-	public static Wallet walletA;
-	public static Wallet walletB;
+	public static Wallet walletA,walletB;
 
-	public static Boolean isChainValid() {
-		Block currentBlock, previousBlock;
+	public static Boolean isChainValid(){
+		Block currentBlock,previousBlock;
 
-		for (int i = 1; i < blockchain.size(); i++) {
-			currentBlock = blockchain.get(i);
-			previousBlock = blockchain.get(i - 1);
-			if (!currentBlock.hash.equals(currentBlock.calculateHash())) {// compare registered and calculated hashes
+		for(int i=1;i<blockchain.size();i++){
+			currentBlock=blockchain.get(i);
+			previousBlock=blockchain.get(i-1);
+			if(!currentBlock.hash.equals(currentBlock.calculateHash())){//compare registered and calculated hashes
 				System.out.println("Current hashes not equal");
 				return false;
 			}
-			if (!previousBlock.hash.equals(currentBlock.previousHash)) {// compare previous and registered hash
+			if(!previousBlock.hash.equals(currentBlock.previousHash)){//compare previous and registered hash
 				System.out.println("Previous hashes not equal");
 				return false;
 			}
@@ -32,8 +31,8 @@ public class Chain {
 		return true;
 	}
 
-	public static void main(String[] args) {// testing
-		Security.addProvider(new BouncyCastleProvider()); //bouncycastle as security provider
+	public static void main(String[] args){//testing
+		Security.addProvider(new BouncyCastleProvider());//bouncycastle as security provider
 		walletA=new Wallet();
 		walletB=new Wallet();
 		
@@ -41,7 +40,7 @@ public class Chain {
 		System.out.println(StringUtil.getStringFromKey(walletA.privateKey));
 		System.out.println(StringUtil.getStringFromKey(walletA.publicKey));
 		
-		Transaction transaction = new Transaction(walletA.publicKey,walletB.publicKey,5,null);
+		Transaction transaction=new Transaction(walletA.publicKey,walletB.publicKey,5,null);
 		transaction.generateSignature(walletA.privateKey);
 		
 		System.out.println("Is signature verified");
