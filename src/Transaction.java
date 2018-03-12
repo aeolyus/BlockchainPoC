@@ -15,7 +15,7 @@ public class Transaction {
 	public byte[] signature;
 
 	public ArrayList<TransactionInput> inputs=new ArrayList<TransactionInput>();
-	public ArrayList<TransactionOutput> outputs=new ArrayList<TransactionOutput>();
+	public ArrayList<TransactionOutputs> outputs=new ArrayList<TransactionOutputs>();
 
 	private static int sequence=0;//count of how many transactions have been generated
 
