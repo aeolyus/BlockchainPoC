@@ -4,13 +4,13 @@ import java.security.PublicKey;
  * @author aeolyus
  *
  */
-public class TransactionOutputs{
+public class TransactionOutput{
 	public String id;
 	public PublicKey recipient;//new owner
 	public float value;//amount of coins
 	public String parentTransactionId;//id of transaction this output was created in
 	
-	public TransactionOutputs(PublicKey recipient,float value,String parentTransactionId){
+	public TransactionOutput(PublicKey recipient,float value,String parentTransactionId){
 		this.recipient=recipient;
 		this.value=value;
 		this.parentTransactionId=parentTransactionId;
