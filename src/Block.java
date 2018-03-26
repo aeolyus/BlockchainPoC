@@ -24,6 +24,7 @@ public class Block{
 	}
 
 	public void mineBlock(int difficulty){
+		System.out.println("Mining block...");
 		merkleRoot=StringUtil.getMerkleRoot(transactions);
 		String target=new String(new char[difficulty]).replace('\0','0');
 		while(!hash.substring(0, difficulty).equals(target)){

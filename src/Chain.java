@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+
+import com.google.gson.GsonBuilder;
 /**
  * @author aeolyus
  *
@@ -122,6 +124,18 @@ public class Chain{
 		System.out.println("\nWalletA's balance is: " + walletA.getBalance());
 		System.out.println("WalletB's balance is: " + walletB.getBalance());
 		
+		//h4ck3rm4n trying to change value to get rich
+//		System.out.println("\nH4ck3rm4n is attempting to alter the last transaction");
+//		blockchain.get(1).transactions.get(0).value=500000;
+//		blockchain.get(1).mineBlock(difficulty);
+//		System.out.println("\nWalletA's balance is: " + walletA.getBalance());
+//		System.out.println("WalletB's balance is: " + walletB.getBalance());
+		
 		isChainValid();
+		
+//		String blockchainJson = new GsonBuilder().setPrettyPrinting().create().toJson(blockchain);
+//		System.out.println("\nThe block chain: ");
+//		System.out.println(blockchainJson);
+
 	}
 }
